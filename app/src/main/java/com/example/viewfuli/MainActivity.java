@@ -9,6 +9,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -767,7 +768,13 @@ public class MainActivity extends AppCompatActivity {
             return mPhotoItemList;
         }
 
+    }
 
+    //旋转屏幕之后重新适配
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        mPhotoAdapter.notifyDataSetChanged();
     }
 
 //String转MD5
